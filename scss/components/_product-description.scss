@@ -1,0 +1,48 @@
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    margin: auto;
+}
+.mySlides:first-of-type {
+    display: block;
+}
+.mainSlidesImage {
+    margin: auto;
+    display: block;
+    height: 80%;
+    width: 80%;
+}
+.smallSlidesImages{
+    opacity: 0.4;
+    margin: 10px 0 10px 0;
+    width: 100%;
+}
+.active,
+.smallSlidesImages:hover {
+  opacity: 1;
+}
+.cursor {
+    cursor: pointer;
+}
+i {
+    border: solid #35b5e7;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 6px;
+  }
+.arrowButton{
+    padding: 0px;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+  
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+

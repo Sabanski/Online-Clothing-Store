@@ -1,23 +1,33 @@
 <%- include header.ejs %>
-<div class="bodyContainer">
-    <div class="container">
 
-        <h1 class="text-center mb-5">Product</h1>
-        <div class="row col-sm-12 col-md-12  col-lg-12">
-
-            <% _.each(items, function(product) { %>
-            <div class="col-sm-8 col-md-8">
-                <img src="/images/<%= product.image_groups[0].images[0].link %>">
+<div class="container">
+    <div class="row col-12 mt-5">
+        <% _.each(items, function(product) { %>
+        <div class="row col-sm-12  col-md-8">
+            <div class=" col-2">
+                <a class="arrowButton" onclick="plusSlides(-1)"><i class="up"></i></a>
+                <% let i = 1%>
+                <% _.each(product.image_groups[0].images, function(image) { %>
+                <img class="smallSlidesImages" src="/images/<%= image.link %>" onclick="currentSlide(<%= i %>)">
+                <% ++i; }); %>
+                <a class="arrowButton" onclick="plusSlides(1)"><i class="down"></i></a>
             </div>
-            <div class="col-sm-4 col-md-4">
-                <h3><%= product.name %></h3>
-                <h4>Price: <%= product.price %>$</h4>
-                <p><%= product.page_description%></p>
+            <div class="col-10">
+                <% _.each(product.image_groups[0].images, function(image) { %>
+                <div class="mySlides">
+                    <img class="mainSlidesImage" src="/images/<%= image.link %>">
+                </div>
+                <% }); %>
             </div>
-
-            <% }); %>
         </div>
+        <div class="col-sm-12 col-md-4">
+            <h3><%= product.name %></h3>
+            <h4>Price: <%= product.price %> <%= product.currency %></h4>
+            <p><%= product.page_description%></p>
+        </div>
+        <% }); %>
     </div>
 </div>
-</div>
+
+
 <%- include footer.ejs %>

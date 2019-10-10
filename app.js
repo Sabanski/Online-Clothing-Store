@@ -35,6 +35,7 @@ app.use(session({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static('public'))
 app.use(errorHandler());
 
 // App routes

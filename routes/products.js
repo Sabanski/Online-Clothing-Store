@@ -63,4 +63,6 @@ router.get('/:category/:subCategory/:productId', getBreadCrumbs.getBreadCrumbs()
     });
   });
 });
+
+
 module.exports = router;

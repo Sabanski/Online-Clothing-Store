@@ -1,45 +1,43 @@
 <%- include header.ejs %>
-<div class="bodyContainer">
-    <div class="container">
+<div class="container">
 
-        <h1 class="text-center mb-5">Products</h1>
-        <div class="row">
-            <%- include filter-menu.ejs %>
-            <div class="col-sm-12 col-md-9  col-lg-9">
-                <div class="row">
-                    <% _.each(items, function(product) { %>
-                    <div class="col-sm-12 col-md-4 m-0">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <% if (product.image_groups[0].images[0].link) { %>
-                                <img class="img-fluid" src="/images/<%= product.image_groups[0].images[0].link %>">
-                                <% } %>
-                            </div>
-                            <div class="col-sm-12">
-                                <h3><%= product.name %></h3>
-                                <h4>Price: <%= product.price %>$</h4>
-                                <% if(categoryUrl.includes(product.primary_category_id)){ %>
-                                <button type="button" class="btn btn-outline-secondary brn-lg m-2">
-                                    <a href="<%=categoryUrl%>/<%=product.id%>">More
-                                        Info</a>
-                                </button>
-                                <%} else {%>
-                                <button type="button" class="btn btn-outline-secondary brn-lg m-2">
-                                    <a href="<%=categoryUrl%>/<%=product.primary_category_id%>/<%=product.id%>">More
-                                        Info</a>
-                                </button>
-                                <% }%>
-                            </div>
+    <h1 class="text-center mb-5">Products</h1>
+    <div class="row">
+        <%- include filter-menu.ejs %>
+        <div class="col-sm-12 col-md-9  col-lg-9">
+            <div class="row">
+                <% _.each(items, function(product) { %>
+                <div class="col-sm-12 col-md-4 m-0">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <% if (product.image_groups[0].images[0].link) { %>
+                            <img class="img-fluid" src="/images/<%= product.image_groups[0].images[0].link %>">
+                            <% } %>
+                        </div>
+                        <div class="col-sm-12">
+                            <h3><%= product.name %></h3>
+                            <h4>Price: <%= product.price %>$</h4>
+                            <% if(categoryUrl.includes(product.primary_category_id)){ %>
+                            <button type="button" class="btn btn-outline-secondary brn-lg m-2">
+                                <a href="<%=categoryUrl%>/<%=product.id%>">More
+                                    Info</a>
+                            </button>
+                            <%} else {%>
+                            <button type="button" class="btn btn-outline-secondary brn-lg m-2">
+                                <a href="<%=categoryUrl%>/<%=product.primary_category_id%>/<%=product.id%>">More
+                                    Info</a>
+                            </button>
+                            <% }%>
                         </div>
                     </div>
-
-                    <% }); %>
                 </div>
-                <section>
-                    <a href="<%=categoryUrl%>/?page=1">1</a>
-                    <a href="<%=categoryUrl%>/?page=2">2</a>
-                </section>
+
+                <% }); %>
             </div>
+            <section>
+                <a href="<%=categoryUrl%>/?page=1">1</a>
+                <a href="<%=categoryUrl%>/?page=2">2</a>
+            </section>
         </div>
     </div>
 </div>
