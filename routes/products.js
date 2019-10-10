@@ -28,7 +28,6 @@ router.get('/:subCategory', getBreadCrumbs.getBreadCrumbs(), (req, res) => {
 // Specific Category Products Listing
 router.get('/:subCategory/:categoryProducts', getBreadCrumbs.getBreadCrumbs(), (req, res) => {
   const page = req.query.page;
-  console.log(page);
   const client = req.db;
   const db = client.db('store');
   const collection = db.collection('products');

@@ -18,7 +18,6 @@
                             <div class="col-sm-12">
                                 <h3><%= product.name %></h3>
                                 <h4>Price: <%= product.price %>$</h4>
-                                <h4><%= product.id %></h4>
                                 <% if(categoryUrl.includes(product.primary_category_id)){ %>
                                 <button type="button" class="btn btn-outline-secondary brn-lg m-2">
                                     <a href="<%=categoryUrl%>/<%=product.id%>">More

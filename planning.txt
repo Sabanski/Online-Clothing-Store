@@ -1,0 +1,3 @@
+counter for Product per page            let = 20
+counter for which page are we on        let = 1
+get exacly that 20 items of the array and push it to the page
