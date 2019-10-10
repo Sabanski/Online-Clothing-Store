@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="header-wrapper">
+    <div class="headerNotification">
+      <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/">
+          <img src="" width="30" height="30" class="d-inline-block align-top" alt="Logo" />
+        </a>
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/mens">Mens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/womens">Womens</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <% if(breadcrumbs){ %>
+    <% for(var i=0; i<breadcrumbs.length; i++){ %>
+    <% if(i == (breadcrumbs.length - 1)){ %>
+    <span class="breadcrumb-item active"><%= breadcrumbs[i].breadcrumbName %></span>
+    <%} else {%>
+    <a class="breadcrumb-item" href="<%= breadcrumbs[i].breadcrumbUrl %>"><%= breadcrumbs[i].breadcrumbName %></a>
+    <% } %>
+    <% } %>
+    <% } %>
+
+  </ol>
+</nav>
+
+</html>

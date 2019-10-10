@@ -1,0 +1,58 @@
+<%- include header.ejs %>
+<div class="bodyContainer">
+  <div class="container">
+    <h1><%= title %></h1>
+    <div class="row">
+      <%- include filter-menu.ejs %>
+      <div class="col-sm-12 col-md-9">
+        <% _.each(items, function(topC) { %>
+        <ol class="col-sm-12 col-md-12 m-0">
+          <li>
+            <% if(topC.name) { %>
+            <h1> <%= topC.name %></h1>
+            <% } %> <% if (topC.image) { %>
+            <p><%= topC.page_description %></p>
+            <div>
+              <img src="/images/<%= topC.image %>" />
+            </div>
+            <% } %>
+            <div>
+              <ol>
+                <% _.each(topC.categories, function(subC) { %>
+                <li>
+                  <h2><%= subC.name %></h2>
+                  <p><%= subC.page_description %></p>
+                  <% if (subC.image) { %>
+                  <div>
+                    <img src="/images/<%= subC.image %>" />
+                  </div>
+                  <% } %>
+                  <ol>
+                    <% _.each(subC.categories, function(subSubC) { %>
+                    <li>
+                      <h2><%= subSubC.name %></h2>
+                      <p><%= subSubC.page_description %></p>
+                      <% if (subSubC.image) { %>
+                      <div>
+                        <img src="/images/<%= subSubC.image %>" />
+                      </div>
+                      <% } %>
+                      <button type="button" class="btn btn-outline-secondary btn-lg m-2"><a
+                          href="/categories/<%=topC.id%>/<%=subSubC.id%>">
+                          More info
+                        </a></button>
+                    </li>
+                    <% }); %>
+                  </ol>
+                </li>
+                <% }); %>
+              </ol>
+            </div>
+          </li>
+        </ol>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include footer.ejs %>
