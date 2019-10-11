@@ -1,10 +1,41 @@
 <%- include header.ejs %>
 <div class="container">
-
     <h1 class="text-center mb-5">Products</h1>
     <div class="row">
         <%- include filter-menu.ejs %>
         <div class="col-sm-12 col-md-9  col-lg-9">
+
+            <section class="text-right">
+                <% if( totalItems > 20 ) { %>
+                <span><%= currentPage * 20 - 19 %> - <%= currentPage * 20 %> of <%= totalItems %> Results | </span>
+                <% if(previousPage) { %>
+                <% if ( 20 * currentPage - 100 > 1) {%>
+                <a class="fas fa-angle-double-left" href="?page=<%= currentPage - 5 %>"></a>
+                <% } %>
+                <a class="fas fa-angle-left" href="?page=<%= previousPage %>"></a>
+                <% } %>
+                <% if(currentPage != 1) { %>
+                <a href="?page=1">1</a> ...
+                <% } %>
+                <a class="btn-secondary" href="?page=<%= currentPage %>"> <%= currentPage %></a>
+                <% if(hasNextPage) { %>
+                <a href="?page=<%= currentPage +1 %>"> <%= currentPage +1 %></a>
+                <% } %>
+                <% if( 20 * currentPage + 40 < totalItems) { %>
+                <a href="?page=<%= currentPage +2 %>"> <%= currentPage +2 %></a>
+                <% } %>
+
+                <!--<% if(lastPage !== currentPage && nextPage !== lastPage && lastPage !=1 ) { %>
+                ... <a href="?page=<%= lastPage %>"><%= lastPage %></a>
+                <% } %> -->
+                <% if(hasNextPage){ %>
+                <a class="fas fa-angle-right" href="?page=<%= nextPage %>"></a>
+                <% } %>
+                <% if ( 20 * currentPage + 100 < totalItems) {%>
+                <a class="fas fa-angle-double-right" href="?page=<%= currentPage + 5 %>"></a>
+                <% } %>
+                <% } %>
+            </section>
             <div class="row">
                 <% _.each(items, function(product) { %>
                 <div class="col-sm-12 col-md-4 m-0">
@@ -34,10 +65,7 @@
 
                 <% }); %>
             </div>
-            <section>
-                <a href="<%=categoryUrl%>/?page=1">1</a>
-                <a href="<%=categoryUrl%>/?page=2">2</a>
-            </section>
+
         </div>
     </div>
 </div>

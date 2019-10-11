@@ -5172,6 +5172,12 @@ a.thumbnail {
 .clearfix::after {
   clear: both; }
 
+.breadcrumb {
+  margin: 0; }
+
+.breadcrumb a:hover {
+  text-decoration: none; }
+
 .footer-wrapper .footerNotifier {
   text-align: center;
   margin: 10px; }
@@ -5187,8 +5193,8 @@ a.thumbnail {
 .mainSlidesImage {
   margin: auto;
   display: block;
-  height: 80%;
-  width: 80%; }
+  height: 70%;
+  width: 70%; }
 
 .smallSlidesImages {
   opacity: 0.4;
@@ -5221,3 +5227,14 @@ i {
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg); }
+
+section a {
+  padding: 4px 10px;
+  margin-bottom: 10px;
+  color: #6c757d; }
+
+section a:hover {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  text-decoration: none; }

@@ -6,10 +6,12 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="header-wrapper">
+  <div class="container">
     <div class="headerNotification">
       <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <!-- Brand -->
@@ -27,21 +29,21 @@
         </ul>
       </nav>
     </div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <% if(breadcrumbs){ %>
+        <% for(var i=0; i<breadcrumbs.length; i++){ %>
+        <% if(i == (breadcrumbs.length - 1)){ %>
+        <span class="breadcrumb-item active"><%= breadcrumbs[i].breadcrumbName %></span>
+        <%} else {%>
+        <a class="breadcrumb-item" href="<%= breadcrumbs[i].breadcrumbUrl %>"><%= breadcrumbs[i].breadcrumbName %></a>
+        <% } %>
+        <% } %>
+        <% } %>
+      </ol>
+    </nav>
   </div>
 </body>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <% if(breadcrumbs){ %>
-    <% for(var i=0; i<breadcrumbs.length; i++){ %>
-    <% if(i == (breadcrumbs.length - 1)){ %>
-    <span class="breadcrumb-item active"><%= breadcrumbs[i].breadcrumbName %></span>
-    <%} else {%>
-    <a class="breadcrumb-item" href="<%= breadcrumbs[i].breadcrumbUrl %>"><%= breadcrumbs[i].breadcrumbName %></a>
-    <% } %>
-    <% } %>
-    <% } %>
 
-  </ol>
-</nav>
 
 </html>

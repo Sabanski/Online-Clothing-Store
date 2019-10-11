@@ -6,7 +6,7 @@ get exacly that 20 items of the array and push it to the page
 formula to calculate what are the current items
 
 
-
+Click 
     const items = pageitems.slice(0, 19);
     console.log(items[0]);
 

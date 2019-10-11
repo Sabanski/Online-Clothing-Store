@@ -3,8 +3,10 @@ const _ = require('underscore');
 // Function for getting breadcrumbs of the page
 const getBreadCrumbs = function () {
   return function (req, res, next) {
-
-    const urls = req.originalUrl.split('/');
+    // find and remove ?page= from the url
+    const url = req.originalUrl.split('?');
+    // split the main url with / to be able to make the crumbs
+    const urls = (url[0].split('/'));
 
     function getCurrentBreadCrumb() {
       urls.shift();
