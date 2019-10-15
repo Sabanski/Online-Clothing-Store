@@ -42,6 +42,10 @@ app.use(errorHandler());
 app.use('/', routes.index);
 app.use('/:categories', routes.products);
 
+
+
+
+
 // Run server
 app.listen(app.get('port'), () => {
   // eslint-disable-next-line no-console

@@ -1,14 +1,4 @@
-counter for Product per page            let = 20
-counter for which page are we on        let = 1
+Drop down choosing Currency
 
-get exacly that 20 items of the array and push it to the page
-
-formula to calculate what are the current items
-
-
-Click 
-    const items = pageitems.slice(0, 19);
-    console.log(items[0]);
-
-
-rending on page
+then get the Currency from the database and update the price
+if the Currency date is not today get the value from the SOAP service and write it to the database
