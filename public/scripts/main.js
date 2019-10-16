@@ -1,3 +1,6 @@
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable func-names */
+/* eslint-disable no-undef */
 var slideIndex = 1;
 function showSlides(n) {
   let i;

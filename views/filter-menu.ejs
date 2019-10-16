@@ -1,52 +1,186 @@
-<div class="col-sm-12 col-md-3 m-0">
-  <ul>
+<script>
+  $(document).ready(function () {
+    $('.icon-event').on('click', function () {
+      $('.icon-event').not(this).find('.i').removeClass('fas fa-check fa-xs');
+      $('icon-event').not(this).removeClass('filter-menu-active');
+      $(this).find('i').toggleClass('fas fa-check fa-xs');
+      $(this).toggleClass('filter-menu-active');
+    });
+  });
 
-    <li><a href=" /mens">Mens</a></li>
-    <ul>
-      <li><a href=" /mens/mens-clothing">Clothing</a>
-        <ul>
-          <li><a href=" /mens/mens-clothing/mens-clothing-suits">Suits</a></li>
-          <li><a href=" /mens/mens-clothing/mens-clothing-jackets">Jackets & Coats</a></li>
-          <li><a href=" /mens/mens-clothing/mens-clothing-dress-shirts">Dress Shirts</a></li>
-          <li><a href=" /mens/mens-clothing/mens-clothing-shorts">Shorts</a></li>
-          <li><a href=" /mens/mens-clothing/mens-clothing-pants">Pants</a></li>
-        </ul>
-      </li>
-      <li><a href=" /mens/mens-accessories">Mens Accessories</a>
-        <ul>
-          <li><a href=" /mens/mens-accessories/mens-accessories-ties">Ties</a></li>
-          <li><a href=" /mens/mens-accessories/mens-accessories-gloves">Gloves</a></li>
-          <li><a href=" /mens/mens-accessories/mens-accessories-luggage">Luggage</a></li>
-        </ul>
-      </li>
-    </ul>
 
-    <li><a href=" /womens">Womens</a></li>
-    <ul>
-      <li><a href=" /womens/womens-clothing">Clothing</a>
-        <ul>
-          <li><a href=" /womens/womens-clothing/womens-outfits">Outfits</a></li>
-          <li><a href=" /womens/womens-clothing/womens-clothing-tops">Tops</a></li>
-          <li><a href=" /womens/womens-clothing/womens-clothing-dresses">Dresses</a></li>
-          <li><a href=" /womens/womens-clothing/womens-clothing-bottoms">Bottoms</a></li>
-          <li><a href=" /womens/womens-clothing/womens-clothing-jackets">Jackets & Coats</a></li>
-          <li><a href=" /womens/womens-clothing/womens-clothing-feeling-red">Feeling Red</a></li>
-        </ul>
-      </li>
-      <li><a href=" /womens/womens-jewelry">Jewelry</a>
-        <ul>
-          <li><a href=" /womens/womens-jewelry/womens-jewelry-earrings">Earrings</a></li>
-          <li><a href=" /womens/womens-jewelry/womens-jewlery-bracelets">Bracelets</a></li>
-          <li><a href=" /womens/womens-jewelry/womens-jewelry-necklaces">Necklaces</a></li>
-        </ul>
-      </li>
-      <li><a href=" /womens/womens-accessories">Accessories</a>
-        <ul>
-          <li><a href=" /womens/womens-accessories/womens-accessories-scarves">Scarves</a></li>
-          <li><a href=" /womens/womens-accessories/womens-accessories-shoes">Shoes</a></li>
-        </ul>
-      </li>
-    </ul>
+  $(function () {
+    $("#slider-range").slider({
+      range: true,
+      min: 250,
+      max: 1000,
+      values: [250, 870],
+      slide: function (event, ui) {
+        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+      }
+    });
+    $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+      "- $" + $("#slider-range").slider("values", 1));
+  });
+</script>
 
-  </ul>
+<div class="col-sm-12 col-md-4 m-0">
+  <div class="col-12">
+    </head>
+
+    <body>
+      <p>Refine by:</p>
+      <div class="list-group-item filter-menu">
+        <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse1" aria-expanded="true">
+          <div class="col-11">CATEGORY</div>
+          <div class="col-1 p-0"><i class="fas fa-minus fa-xs"></i></div>
+        </div>
+
+        <div class="filter-content collapse col-11 m-auto show filter-menu" id="collapse1">
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">MOTORBIKE</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">WINTERSPORTS</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">BIKE</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">EQUESTRIAN</div>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="list-group-item filter-menu">
+        <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse2" aria-expanded="true">
+          <div class="col-11">PRODUCT TYPE</div>
+          <div class="col-1 p-0"><i class="fas fa-minus fa-xs"></i></div>
+        </div>
+
+        <div class="filter-content collapse col-11 m-auto" id="collapse2">
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">LEATHER SUITS</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">JACKETS</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">PANTS</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">ACCESSORIES</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">HELMETS</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">SHOES</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">BOOTS</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">GLOVES</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">SAFETY</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">TECHNICAL LAYERS</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">CASUAL WEAR</div>
+          </a>
+
+        </div>
+      </div>
+
+
+      <div class="list-group-item filter-menu">
+
+        <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse3" aria-expanded="true">
+          <div class="col-11">GENDER</div>
+          <div class="col-1 p-0"><i class="fas fa-minus fa-xs"></i></div>
+        </div>
+
+        <div class="filter-content collapse  col-11 m-auto" id="collapse3">
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">UNISEX</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">MEN</div>
+          </a>
+          <a href="#" class="row icon-event">
+            <div class="col-1 p-0"><i></i></div>
+            <div class="col-11">WOMEN</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="list-group-item filter-menu">
+        <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse4" aria-expanded="true">
+          <div class="col-11">PRICE</div>
+          <div class="col-1 p-0"><i class="fas fa-minus fa-xs"></i></div>
+        </div>
+        <div class="filter-content collapse  col-11 m-auto" id="collapse4">
+          <div id="slider-range"></div>
+          <input type="text" id="amount" readonly>
+        </div>
+      </div>
+
+      <div class="list-group-item filter-menu">
+        <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse5" aria-expanded="true">
+          <div class="col-11">COLOR</div>
+          <div class="col-1 p-0"><i class="fas fa-minus fa-xs"></i></div>
+        </div>
+        <div class="filter-content collapse  col-11 m-auto" id="collapse5">
+
+        </div>
+      </div>
+
+
+
+      <div class="list-group-item filter-menu">
+        <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse6" aria-expanded="true">
+          <div class="col-11">SIZE</div>
+          <div class="col-1 p-0"><i class="fas fa-minus fa-xs"></i></div>
+        </div>
+
+        <div class="filter-content collapse  col-11 m-auto gender-filter" id="collapse6">
+          <div class="row col-12">
+            <div class="category-label col-12"></div>
+            <span class="col-2">S</span>
+            <span class="col-2">M</span>
+            <span class="col-2">L</span>
+            <span class="col-2">XL</span>
+            <span class="col-2">XXL</span>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+  </div> <!-- col.// -->
 </div>

@@ -25,27 +25,27 @@
             <h4>Price: <%= product.price %> <%= product.currency %></h4>
             <p><%= product.page_description %></p>
             <% if(currentPrice){ %>
-                <p><%= currentPrice %></p>
+            <p><%= currentPrice %></p>
             <% } else{ %>
-                <p><%= product.price %></p>
+            <p><%= product.price %></p>
             <% } %>
-            
+
             <form action="<%= path %>" method="?GET">
-                 <select name="currencies" onchange="this.form.submit()">
-                     <% if(selectedValue === 'BGN'){ %>
-                        <option value="USD">USD</option>
-                        <option value="BGN" selected>BGN</option>
-                        <option value="EUR">EUR</option>
-                     <% } else if (selectedValue === 'EUR') { %>
-                        <option value="USD">USD</option>
-                        <option value="BGN">BGN</option>
-                        <option value="EUR" selected>EUR</option>
-                     <% } else { %>
-                        <option value="USD" selected>USD</option>
-                        <option value="BGN">BGN</option>
-                        <option value="EUR">EUR</option>
-                     <% } %>
-                </select> 
+                <select name="currencies" onchange="this.form.submit()">
+                    <% if(selectedValue === 'BGN'){ %>
+                    <option value="USD">USD</option>
+                    <option value="BGN" selected>BGN</option>
+                    <option value="EUR">EUR</option>
+                    <% } else if (selectedValue === 'EUR') { %>
+                    <option value="USD">USD</option>
+                    <option value="BGN">BGN</option>
+                    <option value="EUR" selected>EUR</option>
+                    <% } else { %>
+                    <option value="USD" selected>USD</option>
+                    <option value="BGN">BGN</option>
+                    <option value="EUR">EUR</option>
+                    <% } %>
+                </select>
             </form>
         </div>
         <% }); %>
