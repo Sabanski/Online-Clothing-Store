@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="/public/stylesheets/jquery-ui.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css">
+
 </head>
 
 <body>
@@ -23,7 +26,7 @@
       <nav class="navbar navbar-expand-lg p-0">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
           aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon text-light">Logo!</span>
+          <span class="navbar-toggler-icon text-light"><i class="fas fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -51,83 +54,80 @@
 
 
   <div class="container">
-    <div class="headerNotification">
-      <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="/"><img src="/public/images/fp-logo.png" width="30" height="30"
-            class="d-inline-block align-top" alt="Logo!" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">Arrow Logo!</span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Mens
-              </a>
-              <div class="dropdown-menu w-100 text-center" aria-labelledby="navbarDropdown">
-                <div class="row">
-                  <div class="col-6 text-center">
-                    <div class="col-12"><a href="/mens/mens-clothing">Clothing</a></div>
-                    <div class="dropdown-divider"></div>
-                    <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-suits">Suits</a></div>
-                    <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-jackets">Jackets & Coats</a></div>
-                    <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-dress-shirts">Dress Shirts</a></div>
-                    <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-shorts">Shorts</a></div>
-                    <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-pants">Pants</a></div>
-                  </div>
-                  <div class="col-6 text-center">
-                    <div class="col-12"><a href="/mens/mens-accessories">Accessories</a></div>
-                    <div class="dropdown-divider"></div>
-                    <div class="col-12"><a href="/mens/mens-accessories/mens-accessories-ties">Ties</a></div>
-                    <div class="col-12"><a href="/mens/mens-accessories/mens-accessories-gloves">Gloves</a></div>
-                    <div class="col-12"><a href="/mens/mens-accessories/mens-accessories-luggage">Luggage</a></div>
-                  </div>
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="/"><img src="/public/images/fp-logo.png" width="30" height="30"
+          class="d-inline-block align-top" alt="Logo!" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="menu-icon-arrow navbar-toggler-icon"><i class="fas fa-chevron-down"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Mens
+            </a>
+            <div class="dropdown-menu w-100 text-center" aria-labelledby="navbarDropdown">
+              <div class="row">
+                <div class="col-6 text-center">
+                  <div class="col-12"><a href="/mens/mens-clothing">Clothing</a></div>
+                  <div class="dropdown-divider"></div>
+                  <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-suits">Suits</a></div>
+                  <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-jackets">Jackets & Coats</a></div>
+                  <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-dress-shirts">Dress Shirts</a></div>
+                  <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-shorts">Shorts</a></div>
+                  <div class="col-12"><a href="/mens/mens-clothing/mens-clothing-pants">Pants</a></div>
+                </div>
+                <div class="col-6 text-center">
+                  <div class="col-12"><a href="/mens/mens-accessories">Accessories</a></div>
+                  <div class="dropdown-divider"></div>
+                  <div class="col-12"><a href="/mens/mens-accessories/mens-accessories-ties">Ties</a></div>
+                  <div class="col-12"><a href="/mens/mens-accessories/mens-accessories-gloves">Gloves</a></div>
+                  <div class="col-12"><a href="/mens/mens-accessories/mens-accessories-luggage">Luggage</a></div>
                 </div>
               </div>
-            </li>
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Womens
-              </a>
-              <div class="dropdown-menu w-100 text-center" aria-labelledby="navbarDropdown">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <div class="col-12"><a href="/womens/womens-clothing">Clothing</a></div>
-                    <div class="dropdown-divider"></div>
-                    <div class="col-12"><a href="/womens/womens-clothing/womens-outfits">Outfits</a></div>
-                    <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-tops">Tops</a></div>
-                    <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-dresses">Dresses</a></div>
-                    <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-bottoms">Bottoms</a></div>
-                    <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-jackets">Jackets & Coats</a>
-                    </div>
-                    <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-feeling-red">Feeling Red</a>
-                    </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Womens
+            </a>
+            <div class="dropdown-menu w-100 text-center" aria-labelledby="navbarDropdown">
+              <div class="row">
+                <div class="col-4 text-center">
+                  <div class="col-12"><a href="/womens/womens-clothing">Clothing</a></div>
+                  <div class="dropdown-divider"></div>
+                  <div class="col-12"><a href="/womens/womens-clothing/womens-outfits">Outfits</a></div>
+                  <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-tops">Tops</a></div>
+                  <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-dresses">Dresses</a></div>
+                  <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-bottoms">Bottoms</a></div>
+                  <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-jackets">Jackets & Coats</a>
                   </div>
-                  <div class="col-4 text-center">
-                    <div class="col-12"><a href="/womens/womens-jewelry">Jewelry</a></div>
-                    <div class="dropdown-divider"></div>
-                    <div class="col-12"><a href="/womens/womens-jewelry/womens-jewelry-earrings">Earrings</a></div>
-                    <div class="col-12"><a href="/womens/womens-jewelry/womens-jewlery-bracelets">Bracelets</a></div>
-                    <div class="col-12"><a href="/womens/womens-jewelry/womens-jewelry-necklaces">Necklaces</a></div>
-                  </div>
-                  <div class="col-4 text-center">
-                    <div class="col-12"><a href="/womens/womens-accessories">Accessories</a></div>
-                    <div class="dropdown-divider"></div>
-                    <div class="col-12"><a href="/womens/womens-accessories/womens-accessories-scarves">Scarves</a>
-                    </div>
-                    <div class="col-12"><a href="/womens/womens-accessories/womens-accessories-shoes">Shoes</a></div>
+                  <div class="col-12"><a href="/womens/womens-clothing/womens-clothing-feeling-red">Feeling Red</a>
                   </div>
                 </div>
+                <div class="col-4 text-center">
+                  <div class="col-12"><a href="/womens/womens-jewelry">Jewelry</a></div>
+                  <div class="dropdown-divider"></div>
+                  <div class="col-12"><a href="/womens/womens-jewelry/womens-jewelry-earrings">Earrings</a></div>
+                  <div class="col-12"><a href="/womens/womens-jewelry/womens-jewlery-bracelets">Bracelets</a></div>
+                  <div class="col-12"><a href="/womens/womens-jewelry/womens-jewelry-necklaces">Necklaces</a></div>
+                </div>
+                <div class="col-4 text-center">
+                  <div class="col-12"><a href="/womens/womens-accessories">Accessories</a></div>
+                  <div class="dropdown-divider"></div>
+                  <div class="col-12"><a href="/womens/womens-accessories/womens-accessories-scarves">Scarves</a>
+                  </div>
+                  <div class="col-12"><a href="/womens/womens-accessories/womens-accessories-shoes">Shoes</a></div>
+                </div>
               </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <% if(breadcrumbs){ %>

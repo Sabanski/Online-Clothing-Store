@@ -4,28 +4,31 @@
     text-align: center;
     color: #fff;
     padding: 4px 0;
+    font-size: 14px;
 }
 .header-mid-section{
     background: #1e1e1e;
     color: 	#F8F8F8;
+    font-size: 14px;
 }
-
-div .dropdown-item{
-    display: inline-block;
-
+.navbar-toggler-icon i{
+    color: #fff;
+    border: none;
 }
-
+.menu-icon-arrow i{
+    color: #1e1e1e;
+    box-shadow: none;
+}
 .icon-event{
     box-sizing: border-box;
     margin-bottom: 5px;
 }
-.breadcrumb{
+div .breadcrumb{
     margin: 0;
-}
-.breadcrumb a:hover{
-    text-decoration: none;
+    background-color: #fff;
 }
 
+// Filter menu styling
 .category-label{
     font-size: 18px;
     font-weight: 600;
@@ -35,7 +38,6 @@ div .dropdown-item{
 .category-label i{
     background:  #f5f5f5;
 }
-
 .filter-menu a{
     color: #9f9f9f;
 }
@@ -49,8 +51,12 @@ div .dropdown-item{
 .filter-menu a:active{
     color: #1e1e1e;
 }
-div i{
+.category-label i{
     color: #1e1e1e;
+    border: none;
+}
+.icon-event div i {
+    color: #e70026;
     border: none;
 }
 #amount{
@@ -67,17 +73,29 @@ div i{
     color: #1e1e1e;
     font-weight: 600;
 }
-div .list-group-item{
-    border: none;
-    border-bottom: 1px solid #9f9f9f;
-    margin: 1px;
+.list-group-item{
+    border: 1px solid #9f9f9f;
 }
-
 .gender-filter span{
     color: #9f9f9f;
     font-weight: 600;
     cursor: pointer;
 }
+.gender-filter span:hover{
+    color: #1e1e1e;
+    text-decoration: underline;
+}
 .gender-filter span:active{
     border-bottom: 2px solid #e70026;
 }
+.breadcrumb a{
+    color: #1e1e1e;
+}
+.breadcrumb a:hover{
+    color: #1e1e1e;
+}
+@media only screen and (max-width: 768px) {
+    div .breadcrumb {
+        display: none;
+    }
+  } 

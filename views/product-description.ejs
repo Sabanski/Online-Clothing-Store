@@ -1,24 +1,52 @@
 <%- include header.ejs %>
+<script>
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            items: 1,
+            margin: 0,
+            stagePadding: 0,
+            autoplay: false
+        });
+        slidecount = 1;
+        jQuery('.owl-item').not('.cloned').each(function () {
+            jQuery(this).addClass('slidenumber' + slidecount);
+            slidecount = slidecount + 1;
+        });
+    });
+</script>
 
 <div class="container">
-    <div class="row col-12 mt-5">
+    <div class="row col-12 m-auto">
         <% _.each(items, function(product) { %>
-        <div class="row col-sm-12  col-md-8">
-            <div class=" col-2">
-                <a class="arrowButton" onclick="plusSlides(-1)"><i class="up"></i></a>
-                <% let i = 1%>
-                <% _.each(product.image_groups[0].images, function(image) { %>
-                <img class="smallSlidesImages" src="/images/<%= image.link %>" onclick="currentSlide(<%= i %>)">
-                <% ++i; }); %>
-                <a class="arrowButton" onclick="plusSlides(1)"><i class="down"></i></a>
+        <div class="row col-sm-12  col-md-8 m-auto">
+            <div class="row main-carousel">
+                <div class="col-2">
+                    <a class="arrowButton" onclick="plusSlides(-1)"><i class="up"></i></a>
+                    <% let i = 1%>
+                    <% _.each(product.image_groups[0].images, function(image) { %>
+                    <img class="smallSlidesImages" src="/images/<%= image.link %>" onclick="currentSlide(<%= i %>)">
+                    <% ++i; }); %>
+                    <a class="arrowButton" onclick="plusSlides(1)"><i class="down"></i></a>
+                </div>
+                <div class="col-10">
+                    <% _.each(product.image_groups[0].images, function(image) { %>
+                    <div class="mySlides">
+                        <img class="mainSlidesImage" src="/images/<%= image.link %>">
+                    </div>
+                    <% }); %>
+
+                </div>
             </div>
-            <div class="col-10">
+            <div class="owl-carousel row col-12 m-auto">
                 <% _.each(product.image_groups[0].images, function(image) { %>
-                <div class="mySlides">
-                    <img class="mainSlidesImage" src="/images/<%= image.link %>">
+                <div class="col-12">
+                    <img src="/images/<%= image.link %>">
                 </div>
                 <% }); %>
+
             </div>
+
         </div>
         <div class="col-sm-12 col-md-4">
             <h3><%= product.name %></h3>
@@ -49,8 +77,8 @@
             </form>
         </div>
         <% }); %>
+
     </div>
 </div>
-
 
 <%- include footer.ejs %>

@@ -1,11 +1,77 @@
 <%- include header.ejs %>
 <div class="container">
-    <h1 class="text-center mb-5">Products</h1>
+    <div class="text-left row col-12 mb-2">
+        <span class="product-title"><%= title %></span>
+        <span class="products-counter"><%= totalItems %> ITEMS</span>
+    </div>
     <div class="row">
         <%- include filter-menu.ejs %>
         <div class="col-sm-12 col-md-8  col-lg-8">
+            <section class="text-right m-0">
+                <% if( totalItems > 20 ) { %>
+                <span><%= currentPage * 20 - 19 %> - <%= currentPage * 20 %> of <%= totalItems %> Results | </span>
+                <% if(previousPage) { %>
+                <% if ( 20 * currentPage - 100 > 1) {%>
+                <a class="fas fa-angle-double-left" href="?page=<%= currentPage - 5 %>"></a>
+                <% } %>
+                <a class="fas fa-angle-left" href="?page=<%= previousPage %>"></a>
+                <% } %>
+                <% if(currentPage != 1) { %>
+                <a href="?page=1">1</a> ...
+                <% } %>
+                <a class="btn-secondary" href="?page=<%= currentPage %>"> <%= currentPage %></a>
+                <% if(hasNextPage) { %>
+                <a href="?page=<%= currentPage +1 %>"> <%= currentPage +1 %></a>
+                <% } %>
+                <% if( 20 * currentPage + 40 < totalItems) { %>
+                <a href="?page=<%= currentPage +2 %>"> <%= currentPage +2 %></a>
+                <% } %>
+                <!--<% if(lastPage !== currentPage && nextPage !== lastPage && lastPage !=1 ) { %>
+                ... <a href="?page=<%= lastPage %>"><%= lastPage %></a>
+                <% } %> -->
+                <% if(hasNextPage){ %>
+                <a class="fas fa-angle-right" href="?page=<%= nextPage %>"></a>
+                <% } %>
+                <% if ( 20 * currentPage + 100 < totalItems) {%>
+                <a class="fas fa-angle-double-right" href="?page=<%= currentPage + 5 %>"></a>
+                <% } %>
+                <% } %>
+            </section>
+            <div class="row">
+                <% _.each(items, function(product) { %>
+                <div class="col-6 col-md-4 m-0">
+                    <div class="row product-group">
+                        <div class="col-sm-12 p-2 text-center">
+                            <% if (product.image_groups[0].images[0].link) { %>
+                            <img class="img-fluid" src="/images/<%= product.image_groups[0].images[0].link %>">
+                            <% } %>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="swatch-image">
+                                <img src="/public/images/products/swatch/PG.33330DAN84Q.CHARCWL.CP.jpg" alt="">
+                                <img src="/public/images/products/swatch/PG.10256606.JJI15XX.CP.jpg" alt="">
+                                <img src="/public/images/products/swatch/PG.10123215.JJV61XX.CP.jpg" alt="">
+                            </div>
+                            <div class="product-name"><%= product.name.toUpperCase() %></div>
+                            <div class="product-price"><%= product.price %> USD</div>
+                            <% if(categoryUrl.includes(product.primary_category_id)){ %>
+                            <a href="<%=categoryUrl%>/<%=product.id%>">
+                                <button type="button" class="btn btn-outline-secondary btn-sm mb-2 mt-2">More
+                                    Info</button>
+                            </a>
+                            <%} else {%>
+                            <a href="<%=categoryUrl%>/<%=product.primary_category_id%>/<%=product.id%>">
+                                <button type="button" class="btn btn-outline-secondary btn-sm mb-2 mt-2">More
+                                    Info</button>
+                            </a>
+                            <% }%>
+                        </div>
+                    </div>
+                </div>
 
-            <section class="text-right">
+                <% }); %>
+            </div>
+            <section class="text-right m-1">
                 <% if( totalItems > 20 ) { %>
                 <span><%= currentPage * 20 - 19 %> - <%= currentPage * 20 %> of <%= totalItems %> Results | </span>
                 <% if(previousPage) { %>
@@ -36,36 +102,6 @@
                 <% } %>
                 <% } %>
             </section>
-            <div class="row">
-                <% _.each(items, function(product) { %>
-                <div class="col-sm-12 col-md-4 m-0">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <% if (product.image_groups[0].images[0].link) { %>
-                            <img class="img-fluid" src="/images/<%= product.image_groups[0].images[0].link %>">
-                            <% } %>
-                        </div>
-                        <div class="col-sm-12">
-                            <h3><%= product.name %></h3>
-                            <h4>Price: <%= product.price %>$</h4>
-                            <% if(categoryUrl.includes(product.primary_category_id)){ %>
-                            <button type="button" class="btn btn-outline-secondary brn-lg m-2">
-                                <a href="<%=categoryUrl%>/<%=product.id%>">More
-                                    Info</a>
-                            </button>
-                            <%} else {%>
-                            <button type="button" class="btn btn-outline-secondary brn-lg m-2">
-                                <a href="<%=categoryUrl%>/<%=product.primary_category_id%>/<%=product.id%>">More
-                                    Info</a>
-                            </button>
-                            <% }%>
-                        </div>
-                    </div>
-                </div>
-
-                <% }); %>
-            </div>
-
         </div>
     </div>
 </div>

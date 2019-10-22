@@ -36,10 +36,10 @@
                       <img src="/images/<%= subSubC.image %>" />
                     </div>
                     <% } %>
-                    <button type="button" class="btn btn-outline-secondary btn-lg m-2"><a
-                        href="/categories/<%=topC.id%>/<%=subSubC.id%>">
+                    <a href="/<%=topC.id%>/<%= subC.id %>/<%=subSubC.id%>">
+                      <button type="button" class="btn btn-outline-secondary btn-md mt-3 mb-3">
                         More info
-                      </a></button>
+                      </button> </a>
                   </li>
                   <% }); %>
                 </ol>
