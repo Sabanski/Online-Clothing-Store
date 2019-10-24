@@ -6,20 +6,26 @@
       $(this).find('i').toggleClass('fas fa-check fa-xs');
       $(this).toggleClass('filter-menu-active');
     });
-  });
-  $(function () {
-    $("#slider-range").slider({
-      range: true,
-      min: 250,
-      max: 1000,
-      values: [250, 870],
-      slide: function (event, ui) {
-        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-      }
+    $(function () {
+      $("#slider-range").slider({
+        range: true,
+        min: 250,
+        max: 1000,
+        values: [250, 1000],
+        slide: function (event, ui) {
+          $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+        }
+      });
+      $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+        "- $" + $("#slider-range").slider("values", 1));
     });
-    $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-      "- $" + $("#slider-range").slider("values", 1));
+    $('.size-active').on('click', function () {
+      $('.size-active').not(this).removeClass('size-active-border');
+      $(this).toggleClass('size-active-border');
+    });
   });
+
+
 </script>
 
 <div class="col-sm-12 col-md-4 m-0">
@@ -163,17 +169,16 @@
       <div class="list-group-item filter-menu">
         <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse6" aria-expanded="true">
           <div class="col-11">SIZE</div>
-          <div class="col-1 p-0"><i class="fas fa-minus fa-xs"></i></div>
+          <div class="col-1 p-0"><i class="fas fa-minus"></i></div>
         </div>
 
         <div class="filter-content collapse  col-11 m-auto gender-filter" id="collapse6">
-          <div class="row col-12">
-            <div class="category-label col-12"></div>
-            <span class="col-2">S</span>
-            <span class="col-2">M</span>
-            <span class="col-2">L</span>
-            <span class="col-2">XL</span>
-            <span class="col-2">XXL</span>
+          <div class="row col-12 text-center">
+            <div class="col-2 size-active p-0">S</div>
+            <div class="col-2 size-active p-0">M</div>
+            <div class="col-2 size-active p-0">L</div>
+            <div class="col-2 size-active p-0">XL</div>
+            <div class="col-2 size-active p-0">XXL</div>
           </div>
         </div>
       </div>

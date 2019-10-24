@@ -1,33 +1,17 @@
 <%- include header.ejs %>
-<script>
-    $(document).ready(function () {
-        $(".owl-carousel").owlCarousel({
-            loop: true,
-            items: 1,
-            margin: 0,
-            stagePadding: 0,
-            autoplay: false
-        });
-        slidecount = 1;
-        jQuery('.owl-item').not('.cloned').each(function () {
-            jQuery(this).addClass('slidenumber' + slidecount);
-            slidecount = slidecount + 1;
-        });
-    });
-</script>
 
-<div class="container">
+<div class="">
     <div class="row col-12 m-auto">
         <% _.each(items, function(product) { %>
         <div class="row col-sm-12  col-md-8 m-auto">
             <div class="row main-carousel">
                 <div class="col-2">
-                    <a class="arrowButton" onclick="plusSlides(-1)"><i class="up"></i></a>
+                    <a class="arrowButton" onclick="plusSlides(-1)"><i class="fas fa-chevron-up"></i></a>
                     <% let i = 1%>
                     <% _.each(product.image_groups[0].images, function(image) { %>
                     <img class="smallSlidesImages" src="/images/<%= image.link %>" onclick="currentSlide(<%= i %>)">
                     <% ++i; }); %>
-                    <a class="arrowButton" onclick="plusSlides(1)"><i class="down"></i></a>
+                    <a class="arrowButton" onclick="plusSlides(1)"><i class="fas fa-chevron-down"></i></a>
                 </div>
                 <div class="col-10">
                     <% _.each(product.image_groups[0].images, function(image) { %>
@@ -38,7 +22,7 @@
 
                 </div>
             </div>
-            <div class="owl-carousel row col-12 m-auto">
+            <div class="owl-carousel owl-theme row col-12 m-auto">
                 <% _.each(product.image_groups[0].images, function(image) { %>
                 <div class="col-12">
                     <img src="/images/<%= image.link %>">
@@ -49,36 +33,156 @@
 
         </div>
         <div class="col-sm-12 col-md-4">
-            <h3><%= product.name %></h3>
-            <h4>Price: <%= product.price %> <%= product.currency %></h4>
-            <p><%= product.page_description %></p>
-            <% if(currentPrice){ %>
-            <p><%= currentPrice %></p>
-            <% } else{ %>
-            <p><%= product.price %></p>
-            <% } %>
+            <div id="item-id">Item No. <%= product.id %></div>
+            <div id="product-name"><%= product.name.toUpperCase()%></div>
+            <div>
+                <% if(currentPrice){ %>
+                <p class="price"><%= currentPrice %> <%= selectedValue %></p>
+                <% } else{ %>
+                <p class="price"><%= product.price %> USD</p>
+                <% } %>
+                <div class="select-currrency-label">Select Currency:</div>
+                <form action="<%= path %>" method="?GET">
+                    <select class="select-currrency" name="currencies" onchange="this.form.submit()">
+                        <% if(selectedValue === 'BGN'){ %>
+                        <option value="USD">USD</option>
+                        <option value="BGN" selected>BGN</option>
+                        <option value="EUR">EUR</option>
+                        <% } else if (selectedValue === 'EUR') { %>
+                        <option value="USD">USD</option>
+                        <option value="BGN">BGN</option>
+                        <option value="EUR" selected>EUR</option>
+                        <% } else { %>
+                        <option value="USD" selected>USD</option>
+                        <option value="BGN">BGN</option>
+                        <option value="EUR">EUR</option>
+                        <% } %>
+                    </select>
+                </form>
+            </div>
 
-            <form action="<%= path %>" method="?GET">
-                <select name="currencies" onchange="this.form.submit()">
-                    <% if(selectedValue === 'BGN'){ %>
-                    <option value="USD">USD</option>
-                    <option value="BGN" selected>BGN</option>
-                    <option value="EUR">EUR</option>
-                    <% } else if (selectedValue === 'EUR') { %>
-                    <option value="USD">USD</option>
-                    <option value="BGN">BGN</option>
-                    <option value="EUR" selected>EUR</option>
-                    <% } else { %>
-                    <option value="USD" selected>USD</option>
-                    <option value="BGN">BGN</option>
-                    <option value="EUR">EUR</option>
-                    <% } %>
-                </select>
-            </form>
+            <div class="color-label mb-2">Color</div>
+            <div class="col-12 swatch-images">
+                <img src="/public/images/products/swatch/PG.10219385.JJZ84XX.CP.jpg" alt="">
+                <img src="/public/images/products/swatch/PG.10217025.JJHL3XX.CP.jpg" alt="">
+                <img src="/public/images/products/swatch/PG.10227169.JJ3WCXX.CP.jpg" alt="">
+                <img src="/public/images/products/swatch/PG.10258622.JJFD7A0.CP.jpg" alt="">
+                <img src="/public/images/products/swatch/PG.10123215.JJV61XX.CP.jpg" alt="">
+                <img src="/public/images/products/swatch/PG.10237914.JJ5YPA4.CP.jpg" alt="">
+            </div>
+
+            <div class="size-label mb-2">Size</div>
+            <div class="row col-12 text-center">
+                <div class="col-2 size-active p-0">XS</div>
+                <div class="col-2 size-active p-0">S</div>
+                <div class="col-2 size-active p-0">M</div>
+                <div class="col-2 size-active p-0">L</div>
+                <div class="col-2 size-active p-0">XL</div>
+                <div class="col-2 size-active p-0">XXL</div>
+            </div>
+            <div class="quantity-label mb-2">Quantity</div>
+            <div class="row col-12 quantity-container">
+                <div class="row col-lg-12 col-xl-6 number">
+                    <div class="minus">-</div>
+                    <input type="text" value="1" />
+                    <div class="plus">+</div>
+                </div>
+                <div class="cart-lg row col-lg-12 col-xl-8 text-center">
+                    <button class="col-12 cart-btn">ADD TO CART</button>
+                </div>
+            </div>
+
+            <div class="share-lg row">
+                <div class="col-12 share-label">Share</div>
+                <div class="row col-12">
+                    <div class="col-lg-12 col-xl-4">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-twitter-square"></i>
+                        <i class="fas fa-plus-square"></i>
+                    </div>
+                    <div class="col-lg-12 col-xl-8">
+                        <i class="fas fa-heart ml-3 pr-1"></i>
+                        ADD TO WISHLIST
+                    </div>
+                </div>
+            </div>
+            <div class="share-sm row">
+                <div class="row col-12">
+                    <div class="col-lg-12 col-xl-4 text-center">
+                        <span class="fa-stack m-2">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span><span class="fa-stack m-2">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span><span class="fa-stack m-2">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <span class="fa-stack m-2">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </div>
+                    <div class="col-lg-12 col-xl-8 mt-3 text-center">
+                        <div class="wishlist-label"> <i class="fas fa-heart ml-3 pr-1"></i>ADD
+                            TO WISHLIST</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <% }); %>
 
     </div>
+    <div class="row col-12 description-list mt-5 m-auto pt-3">
+        <div class="row col-12" data-toggle="collapse" data-target="#collapse-description" aria-expanded="true">
+            <div class="col-11 description-label">DESCRIPTION</div>
+            <div class="col-1 p-0 text-right"><i class="fas fa-minus"></i></div>
+        </div>
+
+        <div class="description-content collapse show  col-12 m-auto" id="collapse-description">
+            <div class="row col-12">
+                <div class="col-sm-12 col-lg-7 mt-3" id="description-text">Lorem ipsum dolor sit amet consectetur
+                    adipisicing
+                    elit. Maiores
+                    amet at
+                    explicabo
+                    voluptatem veniam magnam accusantium labore distinctio, corporis blanditiis quibusdam cupiditate
+                    enim laboriosam, quae, reprehenderit nobis expedita sequi necessitatibus!
+                </div>
+                <div class="col-sm-12 col-lg-5 mt-3 mb-5">
+                    <div class="row col-12">
+                        <div class="col-1 p-0"><i class="fas fa-square-full"></i></div>
+                        <div class="col-11 pl-1 pr-0">Lorem ipsum dolor sit amet.</div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-1 p-0"><i class="fas fa-square-full"></i></div>
+                        <div class="col-11 pl-1 pr-0">consectetur adipiscing elit, sed do eiusmod</div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-1 p-0"><i class="fas fa-square-full"></i></div>
+                        <div class="col-11 pl-1 pr-0">tempor incididunt</div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-1 p-0"><i class="fas fa-square-full"></i></div>
+                        <div class="col-11 pl-1 pr-0">ut labore et dolore magna aliqua.</div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-1 p-0"><i class="fas fa-square-full"></i></div>
+                        <div class="col-11 pl-1 pr-0">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-12 text-center cart-sm m-auto">
+            <button class="col-12 cart-btn">ADD TO CART</button>
+        </div>
+    </div>
+    <% }); %>
+
+</div>
 </div>
 
 <%- include footer.ejs %>

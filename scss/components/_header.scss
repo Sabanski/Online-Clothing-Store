@@ -98,4 +98,11 @@ div .breadcrumb{
     div .breadcrumb {
         display: none;
     }
-  } 
+}
+.size-active{
+    cursor: pointer;
+}
+.size-active-border{
+    border: 1px solid #e70026;
+    border-bottom: 3px solid #e70026;
+}
