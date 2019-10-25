@@ -1,12 +1,50 @@
+<script>
+    function toggleImages() {
+        let images = document.getElementById("products-images");
+        if (images.style.display === "none") {
+            images.style.display = "block";
+        } else {
+            images.style.display = "none";
+        }
+        let filtersShow = document.getElementById('filters-navigation-show');
+        if (filtersShow.style.display === "none") {
+            filtersShow.style.display = "flex";
+        } else {
+            filtersShow.style.display = "none";
+        }
+        let filtersHide = document.getElementById('filters-navigation-hide');
+        filtersHide.classList.toggle('filters-navigation-hidden');
+    }
+</script>
+
 <%- include header.ejs %>
 <div class="container">
-    <div class="text-left row col-12 mb-2">
+    <div class="text-left row col-12 mb-2 product-info">
         <span class="product-title"><%= title %></span>
         <span class="products-counter"><%= totalItems %> ITEMS</span>
     </div>
-    <div class="row">
-        <%- include filter-menu.ejs %>
-        <div class="col-sm-12 col-md-8  col-lg-8">
+    <div class="row p-0">
+        <div class="col-12 filter-menu-sm p-0">
+            <div class="category-label col-12 p-2 row" id="filters-navigation-show" data-toggle="collapse"
+                data-target="#filters-collapse" aria-expanded="true" onclick="toggleImages()">
+                <i class="fas fa-chevron-left col-1 pt-2"></i>
+                <div class="col-4 text-left pl-1 pt-1 ">Filters</div>
+                <div class="col-5 text-right pr-1 pt-1">Search</div>
+                <i class="fas fa-search col-1 text-right pt-2 pl-1"></i>
+            </div>
+            <div class="category-label col-12  row filters-navigation-hidden" id="filters-navigation-hide"
+                data-toggle="collapse" data-target="#filters-collapse" aria-expanded="true" onclick="toggleImages()">
+                <div class="col-11 text-center pl-3 pt-1">FILTERS<span class="filters-counter ml-2">5</span></div>
+                <i class="col-1 fas fa-chevron-right pt-2"></i>
+            </div>
+            <div class="filter-content collapse col-12 m-auto filter-menu p-0" id="filters-collapse">
+                <%- include filter-menu-mobile.ejs %>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 m-0 filter-menu-lg">
+            <%- include filter-menu.ejs %>
+        </div>
+        <div class="col-sm-12 col-md-8  col-lg-8 m-auto" id="products-images">
             <section class="text-right m-0">
                 <% if( totalItems > 20 ) { %>
                 <span><%= currentPage * 20 - 19 %> - <%= currentPage * 20 %> of <%= totalItems %> Results | </span>
@@ -39,7 +77,7 @@
             </section>
             <div class="row">
                 <% _.each(items, function(product) { %>
-                <div class="col-6 col-md-4 m-0">
+                <div class="col-6 col-xl-4 m-0">
                     <div class="row product-group">
                         <div class="col-sm-12 p-2 text-center">
                             <% if (product.image_groups[0].images[0].link) { %>

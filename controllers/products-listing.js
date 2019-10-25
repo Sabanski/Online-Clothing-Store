@@ -24,7 +24,7 @@ exports.getSubCategoryProducts = (req, res) => {
             _,
 
             // Template data
-            title: items.name,
+            title: req.params.subCategory,
             items,
             categoryUrl: categoryUrl[0],
             breadcrumbs: req.breadcrumbs,

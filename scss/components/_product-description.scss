@@ -146,8 +146,11 @@ i{
     margin-left: 5px;
     margin-top: 5px;
 }
-
-
+.description-label{
+    font-size: 22px;
+    font-weight: 600;
+    color: #111111;
+}
 @media only screen and (max-width: 800px) {
     div .share-lg{
       display:none;

@@ -28,6 +28,19 @@ div .breadcrumb{
     background-color: #fff;
 }
 
+.menu-title a{
+    font-weight: 600;
+    color: #9f9f9f;
+}
+.menu-title a:hover{
+    color: #1e1e1e;
+}
+.menu-category a{
+    color: #9f9f9f;
+}
+.menu-category a:hover{
+    color: #1e1e1e;
+}
 // Filter menu styling
 .category-label{
     font-size: 18px;
