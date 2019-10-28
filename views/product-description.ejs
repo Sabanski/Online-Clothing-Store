@@ -36,12 +36,12 @@
             <div id="item-id">Item No. <%= product.id %></div>
             <div id="product-name"><%= product.name.toUpperCase()%></div>
             <div>
-                <% if(currentPrice){ %>
-                <p class="price"><%= currentPrice %> <%= selectedValue %></p>
+                <% if(calculatedPrice){ %>
+                <p class="price"><%= (calculatedPrice * product.price).toFixed(2) %> <%= selectedValue %></p>
                 <% } else{ %>
                 <p class="price"><%= product.price %> USD</p>
                 <% } %>
-                <div class="select-currrency-label">Select Currency:</div>
+                <div class="select-currrency-label">Select Currency: <%= selectedValue %></div>
                 <form action="<%= path %>" method="?GET">
                     <select class="select-currrency" name="currencies" onchange="this.form.submit()">
                         <% if(selectedValue === 'BGN'){ %>
@@ -63,12 +63,12 @@
 
             <div class="color-label mb-2">Color</div>
             <div class="col-12 swatch-images">
-                <img src="/public/images/products/swatch/PG.10219385.JJZ84XX.CP.jpg" alt="">
-                <img src="/public/images/products/swatch/PG.10217025.JJHL3XX.CP.jpg" alt="">
-                <img src="/public/images/products/swatch/PG.10227169.JJ3WCXX.CP.jpg" alt="">
-                <img src="/public/images/products/swatch/PG.10258622.JJFD7A0.CP.jpg" alt="">
-                <img src="/public/images/products/swatch/PG.10123215.JJV61XX.CP.jpg" alt="">
-                <img src="/public/images/products/swatch/PG.10237914.JJ5YPA4.CP.jpg" alt="">
+                <img class="active-image" src="/public/images/products/swatch/PG.10219385.JJZ84XX.CP.jpg" alt="">
+                <img class="active-image" src="/public/images/products/swatch/PG.10217025.JJHL3XX.CP.jpg" alt="">
+                <img class="active-image" src="/public/images/products/swatch/PG.10227169.JJ3WCXX.CP.jpg" alt="">
+                <img class="active-image" src="/public/images/products/swatch/PG.10258622.JJFD7A0.CP.jpg" alt="">
+                <img class="active-image" src="/public/images/products/swatch/PG.10123215.JJV61XX.CP.jpg" alt="">
+                <img class="active-image" src="/public/images/products/swatch/PG.10237914.JJ5YPA4.CP.jpg" alt="">
             </div>
 
             <div class="size-label mb-2">Size</div>

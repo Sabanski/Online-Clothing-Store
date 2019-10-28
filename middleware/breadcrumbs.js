@@ -7,7 +7,6 @@ const getBreadCrumbs = function () {
     const url = req.originalUrl.split('?');
     // split the main url with / to be able to make the crumbs
     const urls = (url[0].split('/'));
-
     function getCurrentBreadCrumb() {
       urls.shift();
       req.breadcrumbs = urls.map((url, i) => ({
@@ -16,13 +15,13 @@ const getBreadCrumbs = function () {
       }));
       next();
     }
+    const client = req.db;
+    const db = client.db('store');
+    const collection = db.collection('products');
     // Check if its on product page and swap the id of the product for the name and push it
     if (urls[4] === undefined) {
       getCurrentBreadCrumb();
     } else {
-      const client = req.db;
-      const db = client.db('store');
-      const collection = db.collection('products');
       collection.find({ id: urls[4] }).toArray((collErr, items) => {
         _.each(items, (product) => {
           urls.pop();

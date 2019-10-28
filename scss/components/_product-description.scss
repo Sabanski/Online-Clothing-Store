@@ -1,5 +1,3 @@
-/* Hide the images by default */
-
 .mainSlidesImage {
     margin: auto;
     display: block;
@@ -141,16 +139,22 @@ i{
     border-bottom: 1px solid #999999;
 }
 .swatch-images img{
-    width: 30px;
-    height: 30px;
+    padding: 3px;
+    width: 40px;
+    height: 40px;
     margin-left: 5px;
     margin-top: 5px;
+    cursor: pointer;
+}
+.active-image{
+
 }
 .description-label{
     font-size: 22px;
     font-weight: 600;
     color: #111111;
 }
+// Media querry for mobile devices
 @media only screen and (max-width: 800px) {
     div .share-lg{
       display:none;

@@ -5375,7 +5375,6 @@ div .breadcrumb {
   text-align: center;
   margin: 10px; }
 
-/* Hide the images by default */
 .mainSlidesImage {
   margin: auto;
   display: block;
@@ -5512,10 +5511,12 @@ i {
   border-bottom: 1px solid #999999; }
 
 .swatch-images img {
-  width: 30px;
-  height: 30px;
+  padding: 3px;
+  width: 40px;
+  height: 40px;
   margin-left: 5px;
-  margin-top: 5px; }
+  margin-top: 5px;
+  cursor: pointer; }
 
 .description-label {
   font-size: 22px;

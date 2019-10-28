@@ -27,7 +27,7 @@ exports.getSubcategories = (req, res) => {
       _,
 
       // Template data
-      title: 'Hello World!',
+      title: 'Online Store',
       items,
       breadcrumbs: req.breadcrumbs,
     });

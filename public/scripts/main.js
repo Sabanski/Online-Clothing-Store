@@ -61,4 +61,8 @@ $(document).ready(function () {
     $('.size-active').not(this).removeClass('size-active-border');
     $(this).toggleClass('size-active-border');
   });
+  $('.active-image').on('click', function () {
+    $('.active-image').not(this).removeClass('size-active-border');
+    $(this).toggleClass('size-active-border');
+  });
 });

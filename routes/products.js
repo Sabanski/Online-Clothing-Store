@@ -16,6 +16,6 @@ router.get('/:subCategory', getBreadCrumbs.getBreadCrumbs(), productsListingCont
 router.get('/:subCategory/:categoryProducts', getBreadCrumbs.getBreadCrumbs(), productsListingController.getSpecificCategoryProducts);
 
 // Product Description
-router.get('/:category/:subCategory/:productId', getBreadCrumbs.getBreadCrumbs(), productController.getCurrentProduct );
+router.get('/:category/:subCategory/:productId', getBreadCrumbs.getBreadCrumbs(), productController.getCurrentProduct);
 
 module.exports = router;
