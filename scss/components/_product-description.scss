@@ -1,3 +1,4 @@
+// Slider stylings
 .mainSlidesImage {
     margin: auto;
     display: block;
@@ -9,9 +10,9 @@
     margin: 10px 0 10px 0;
     width: 100%;
 }
-.active,
-.smallSlidesImages:hover {
+.smallSlidesImages:hover ,.smallSlidesImages.active {
   opacity: 1;
+  border: 1px solid $brightRed;
 }
 .arrowButton{
     display: block;
@@ -146,9 +147,6 @@ i{
     margin-top: 5px;
     cursor: pointer;
 }
-.active-image{
-
-}
 .description-label{
     font-size: 22px;
     font-weight: 600;
@@ -180,6 +178,7 @@ i{
         width: 100%;
     }
     }
+    // Media querry for for large deveices
 @media only screen and (min-width: 800px) {
     div .share-sm{
       display:none;

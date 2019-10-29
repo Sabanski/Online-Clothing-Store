@@ -1,3 +1,4 @@
+// Header menu styling
 .header-top-section{
     background: $brightRed;
     width: 100%;
@@ -15,6 +16,7 @@
     color: $whiteColor;
     border: none;
 }
+// Dropdown Menu styligns
 .menu-icon-arrow i{
     color: $blackColor;
     box-shadow: none;
@@ -23,11 +25,6 @@
     box-sizing: border-box;
     margin-bottom: 5px;
 }
-div .breadcrumb{
-    margin: 0;
-    background-color: $whiteColor;
-}
-
 .menu-title a{
     font-weight: 600;
     color: $darkGray;
@@ -41,7 +38,7 @@ div .breadcrumb{
 .menu-category a:hover{
     color: $blackColor;
 }
-// Filter menu styling
+// Filter menu stylings
 .category-label{
     font-size: 18px;
     font-weight: 600;
@@ -100,6 +97,11 @@ div .breadcrumb{
 }
 .gender-filter span:active{
     border-bottom: 2px solid $brightRed;
+}
+// Breadcrumbs 
+div .breadcrumb{
+    margin: 0;
+    background-color: $whiteColor;
 }
 .breadcrumb a{
     color: $blackColor;

@@ -1,3 +1,4 @@
+// Products card styling
 .category-title{
     font-size: 24px;
     font-weight: 600;
@@ -44,6 +45,7 @@
     box-shadow: none;
     background-color: $whiteColor;
 }
+// Media querry for small mobile devices
 @media only screen and (max-width: 900px) {
     div.filters-navigation-hidden{
         display: none;
@@ -108,6 +110,7 @@
         color: $brightRed;
     }
 }
+// Media querry for large devices to hide the small menu
   @media only screen and (min-width: 900px) {
     div .filter-menu-sm{
       display:none;

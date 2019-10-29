@@ -5197,10 +5197,6 @@ a.thumbnail {
   box-sizing: border-box;
   margin-bottom: 5px; }
 
-div .breadcrumb {
-  margin: 0;
-  background-color: #fff; }
-
 .menu-title a {
   font-weight: 600;
   color: #666666; }
@@ -5272,6 +5268,10 @@ div .breadcrumb {
 
 .gender-filter span:active {
   border-bottom: 2px solid #e70026; }
+
+div .breadcrumb {
+  margin: 0;
+  background-color: #fff; }
 
 .breadcrumb a {
   color: #1e1e1e; }
@@ -5377,7 +5377,7 @@ div .breadcrumb {
 
 .footer-wrapper .footerNotifier {
   text-align: center;
-  margin: 10px; }
+  margin: 20px; }
 
 .mainSlidesImage {
   margin: auto;
@@ -5390,9 +5390,9 @@ div .breadcrumb {
   margin: 10px 0 10px 0;
   width: 100%; }
 
-.active,
-.smallSlidesImages:hover {
-  opacity: 1; }
+.smallSlidesImages:hover, .smallSlidesImages.active {
+  opacity: 1;
+  border: 1px solid #e70026; }
 
 .arrowButton {
   display: block;
