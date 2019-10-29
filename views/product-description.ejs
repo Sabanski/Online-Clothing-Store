@@ -42,25 +42,18 @@
                 <p class="price"><%= product.price %> USD</p>
                 <% } %>
                 <div class="select-currrency-label">Select Currency:</div>
-                <form action="<%= path %>" method="?GET">
+                <form action="<%= path %>">
                     <select class="select-currrency" name="currencies" onchange="this.form.submit()">
-                        <% if(selectedValue === 'BGN'){ %>
-                        <option value="USD">USD</option>
-                        <option value="BGN" selected>BGN</option>
-                        <option value="EUR">EUR</option>
-                        <% } else if (selectedValue === 'EUR') { %>
-                        <option value="USD">USD</option>
-                        <option value="BGN">BGN</option>
-                        <option value="EUR" selected>EUR</option>
-                        <% } else { %>
-                        <option value="USD" selected>USD</option>
-                        <option value="BGN">BGN</option>
-                        <option value="EUR">EUR</option>
+                        <% _.each(currency, function(currency) { %>
+                        <% if(selectedValue === currency.id){ %>
+                        <option value="<%=currency.id%>" selected><%= currency.id %></option>
+                        <% }else{ %>
+                        <option value="<%=currency.id%>"><%= currency.id %></option>
                         <% } %>
+                        <% }); %>
                     </select>
                 </form>
             </div>
-
             <div class="color-label mb-2">Color</div>
             <div class="col-12 swatch-images">
                 <img class="active-image" src="/public/images/products/swatch/PG.10219385.JJZ84XX.CP.jpg" alt="">

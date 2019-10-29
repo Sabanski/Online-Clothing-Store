@@ -1,4 +1,3 @@
-
 const _ = require('underscore');
 const soap = require('soap');
 
@@ -26,24 +25,24 @@ exports.getCurrentProduct = (req, res) => {
       // call the service
       client.getlatestvalue(args, (err, res) => {
         // find and write the current value to the DBs
-        collection.find({ id: args.Moneda }).forEach((result) => {
+        currenciesCollection.find({ id: args.Moneda }).forEach((result) => {
           result.value = res.getlatestvalueResult;
           result.date = new Date();
-          collection.save(result);
+          currenciesCollection.save(result);
         });
       });
     });
   }
 
   currenciesCollection.find({ id: 'USD' }).forEach((result) => {
-    calculatedPrice = (result.value);
+    calculatedPrice = result.value;
   });
 
   // Get the current price of the Currency
   function getPriceValue() {
     currenciesCollection.find({ id: selectedValue }).forEach((result) => {
       // It's been more than 24 hours so it's time to update the price
-      if ((now - result.date.getTime()) > oneDay) {
+      if (now - result.date.getTime() > oneDay) {
         SoapController(args);
         currentPrice = result.value;
       } else {
@@ -56,20 +55,24 @@ exports.getCurrentProduct = (req, res) => {
 
   // Push the data to the EJS template
   const collection = db.collection('products');
-  collection.find({ id: req.params.productId }).toArray((collErr, items) => {
-    calculatedPrice /= currentPrice;
-    const path = req.originalUrl;
-    res.render('product-description', {
-      // Underscore.js lib
-      _,
-      // Template data
-      title: 'Hello World!',
-      items,
-      breadcrumbs: req.breadcrumbs,
-      currentPrice,
-      calculatedPrice,
-      path,
-      selectedValue,
-    });
-  });
+  collection.find({ id: req.params.productId })
+    .toArray()
+    .then(items => currenciesCollection.find()
+      .toArray((collErr, currency) => {
+        calculatedPrice /= currentPrice;
+        const path = req.originalUrl;
+        res.render('product-description', {
+          // Underscore.js lib
+          _,
+          // Template data
+          title: 'Hello World!',
+          items,
+          currency,
+          breadcrumbs: req.breadcrumbs,
+          currentPrice,
+          calculatedPrice,
+          path,
+          selectedValue,
+        });
+      }));
 };

@@ -9,6 +9,6 @@ const router = express.Router();
 router.get('/', getBreadCrumbs.getBreadCrumbs(), categoriesController.getAllCategories);
 
 // Mens , Womens Categories and Subcategories
-router.get('/:category', getBreadCrumbs.getBreadCrumbs(), categoriesController.getSubcategories);
+router.get('/:category', getBreadCrumbs.getBreadCrumbs(), categoriesController.getCategoryProducts);
 
 module.exports = router;

@@ -1,57 +1,137 @@
+<script>
+  function toggleImages() {
+    let images = document.getElementById("products-images");
+    if (images.style.display === "none") {
+      images.style.display = "block";
+    } else {
+      images.style.display = "none";
+    }
+    let filtersShow = document.getElementById('filters-navigation-show');
+    if (filtersShow.style.display === "none") {
+      filtersShow.style.display = "flex";
+    } else {
+      filtersShow.style.display = "none";
+    }
+    let filtersHide = document.getElementById('filters-navigation-hide');
+    filtersHide.classList.toggle('filters-navigation-hidden');
+  }
+</script>
+
 <%- include header.ejs %>
 <div class="container">
-  <h1><%= title %></h1>
-  <div class="row">
-    <%- include filter-menu.ejs %>
+  <div class="text-left row col-12 mb-2 product-info">
+    <span class="category-title"><%= title %></span>
+    <span class="products-counter"><%= totalItems %> ITEMS</span>
+  </div>
+  <div class="row p-0">
+    <div class="col-12 filter-menu-sm p-0">
+      <div class="category-label col-12 p-2 row" id="filters-navigation-show" data-toggle="collapse"
+        data-target="#filters-collapse" aria-expanded="true" onclick="toggleImages()">
+        <i class="fas fa-chevron-left col-1 pt-2"></i>
+        <div class="col-4 text-left pl-1 pt-1 ">Filters<span class="selected-filters m-1">5</span></div>
+        <div class="col-5 text-right pr-1 pt-1">Search</div>
+        <i class="fas fa-search col-1 text-right pt-2 pl-1"></i>
+      </div>
+      <div class="category-label col-12  row filters-navigation-hidden" id="filters-navigation-hide"
+        data-toggle="collapse" data-target="#filters-collapse" aria-expanded="true" onclick="toggleImages()">
+        <div class="col-11 text-center pl-3 pt-1">FILTERS<span class="selected-filters ml-2">5</span></div>
+        <i class="col-1 fas fa-chevron-right pt-2 px-0"></i>
+      </div>
+      <div class="filter-content collapse col-12 m-auto filter-menu p-0" id="filters-collapse">
+        <%- include filter-menu-mobile.ejs %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4 m-0 filter-menu-lg">
+      <%- include filter-menu.ejs %>
+    </div>
+    <div class="col-sm-12 col-md-8  col-lg-8 m-auto" id="products-images">
+      <section class="text-right m-0">
+        <% if( totalItems > 20 ) { %>
+        <span><%= currentPage * 20 - 19 %> - <%= currentPage * 20 %> of <%= totalItems %> Results | </span>
+        <% if(previousPage) { %>
+        <% if ( 20 * currentPage - 100 > 1) {%>
+        <a class="fas fa-angle-double-left" href="?page=<%= currentPage - 5 %>"></a>
+        <% } %>
+        <a class="fas fa-angle-left" href="?page=<%= previousPage %>"></a>
+        <% } %>
+        <% if(currentPage != 1) { %>
+        <a href="?page=1">1</a> ...
+        <% } %>
+        <a class="btn-secondary" href="?page=<%= currentPage %>"> <%= currentPage %></a>
+        <% if(hasNextPage) { %>
+        <a href="?page=<%= currentPage +1 %>"> <%= currentPage +1 %></a>
+        <% } %>
+        <% if( 20 * currentPage + 40 < totalItems) { %>
+        <a href="?page=<%= currentPage +2 %>"> <%= currentPage +2 %></a>
+        <% } %>
+        <!--<% if(lastPage !== currentPage && nextPage !== lastPage && lastPage !=1 ) { %>
+              ... <a href="?page=<%= lastPage %>"><%= lastPage %></a>
+              <% } %> -->
+        <% if(hasNextPage){ %>
+        <a class="fas fa-angle-right" href="?page=<%= nextPage %>"></a>
+        <% } %>
+        <% if ( 20 * currentPage + 100 < totalItems) {%>
+        <a class="fas fa-angle-double-right" href="?page=<%= currentPage + 5 %>"></a>
+        <% } %>
+        <% } %>
+      </section>
+      <div class="row">
+        <% _.each(items, function(product) { %>
+        <div class="col-6 col-xl-4 m-0">
+          <div class="row product-group">
+            <div class="col-sm-12 p-2 text-center">
+              <% if (product.image_groups[0].images[0].link) { %>
+              <img class="img-fluid" src="/images/<%= product.image_groups[0].images[0].link %>">
+              <% } %>
+            </div>
+            <div class="col-sm-12">
+              <div class="swatch-image">
+                <img src="/public/images/products/swatch/PG.33330DAN84Q.CHARCWL.CP.jpg" alt="">
+                <img src="/public/images/products/swatch/PG.10256606.JJI15XX.CP.jpg" alt="">
+                <img src="/public/images/products/swatch/PG.10123215.JJV61XX.CP.jpg" alt="">
+              </div>
+              <div class="product-name"><%= product.name.toUpperCase() %></div>
+              <div class="product-price"><%= product.price %> USD</div>
 
-    <div class="col-sm-12 col-md-8">
-      <% _.each(items, function(topC) { %>
-      <ol class="col-sm-12 col-md-12 m-0">
-        <li>
-          <% if(topC.name) { %>
-          <h1> <%= topC.name %></h1>
-          <% } %> <% if (topC.image) { %>
-          <p><%= topC.page_description %></p>
-          <div>
-            <img src="/images/<%= topC.image %>" />
+            </div>
           </div>
-          <% } %>
-          <div>
-            <ol>
-              <% _.each(topC.categories, function(subC) { %>
-              <li>
-                <h2><%= subC.name %></h2>
-                <p><%= subC.page_description %></p>
-                <% if (subC.image) { %>
-                <div>
-                  <img src="/images/<%= subC.image %>" />
-                </div>
-                <% } %>
-                <ol>
-                  <% _.each(subC.categories, function(subSubC) { %>
-                  <li>
-                    <h2><%= subSubC.name %></h2>
-                    <p><%= subSubC.page_description %></p>
-                    <% if (subSubC.image) { %>
-                    <div>
-                      <img src="/images/<%= subSubC.image %>" />
-                    </div>
-                    <% } %>
-                    <a href="/<%=topC.id%>/<%= subC.id %>/<%=subSubC.id%>">
-                      <button type="button" class="btn btn-outline-secondary btn-md mt-3 mb-3">
-                        More info
-                      </button> </a>
-                  </li>
-                  <% }); %>
-                </ol>
-              </li>
-              <% }); %>
-            </ol>
-          </div>
-        </li>
-      </ol>
-      <% }); %>
+        </div>
+
+        <% }); %>
+      </div>
+      <section class="text-right m-1">
+        <% if( totalItems > 20 ) { %>
+        <span><%= currentPage * 20 - 19 %> - <%= currentPage * 20 %> of <%= totalItems %> Results | </span>
+        <% if(previousPage) { %>
+        <% if ( 20 * currentPage - 100 > 1) {%>
+        <a class="fas fa-angle-double-left" href="?page=<%= currentPage - 5 %>"></a>
+        <% } %>
+        <a class="fas fa-angle-left" href="?page=<%= previousPage %>"></a>
+        <% } %>
+        <% if(currentPage != 1) { %>
+        <a href="?page=1">1</a> ...
+        <% } %>
+        <a class="btn-secondary" href="?page=<%= currentPage %>"> <%= currentPage %></a>
+        <% if(hasNextPage) { %>
+        <a href="?page=<%= currentPage +1 %>"> <%= currentPage +1 %></a>
+        <% } %>
+        <% if( 20 * currentPage + 40 < totalItems) { %>
+        <a href="?page=<%= currentPage +2 %>"> <%= currentPage +2 %></a>
+        <% } %>
+
+        <!--<% if(lastPage !== currentPage && nextPage !== lastPage && lastPage !=1 ) { %>
+              ... <a href="?page=<%= lastPage %>"><%= lastPage %></a>
+              <% } %> -->
+        <% if(hasNextPage){ %>
+        <a class="fas fa-angle-right" href="?page=<%= nextPage %>"></a>
+        <% } %>
+        <% if ( 20 * currentPage + 100 < totalItems) {%>
+        <a class="fas fa-angle-double-right" href="?page=<%= currentPage + 5 %>"></a>
+        <% } %>
+        <% } %>
+      </section>
     </div>
   </div>
+</div>
 </div>
 <%- include footer.ejs %>

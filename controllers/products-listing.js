@@ -10,12 +10,6 @@ exports.getSubCategoryProducts = (req, res) => {
   const categoryUrl = req.originalUrl.split('?');
   const page = +req.query.page || 1;
   const regexName = new RegExp(`^${req.params.subCategory}*`);
-  let subCategoryName = (req.originalUrl.split('/'));
-  const paginationName = (subCategoryName[2].split('?'));
-  subCategoryName = (`${subCategoryName[2]}-${paginationName[0]}`);
-  const subCategoryTitle = (subCategoryName.split('-'));
-  const titleName = (subCategoryTitle[3].charAt(0).toUpperCase() + subCategoryTitle[3].slice(1));
-
 
   collection.find({ primary_category_id: { $regex: regexName } })
     .count()
@@ -30,7 +24,7 @@ exports.getSubCategoryProducts = (req, res) => {
             _,
 
             // Template data
-            title: titleName,
+            title: req.params.subCategory,
             items,
             categoryUrl: categoryUrl[0],
             breadcrumbs: req.breadcrumbs,
@@ -53,9 +47,7 @@ exports.getSpecificCategoryProducts = (req, res) => {
   const collection = db.collection('products');
   const categoryUrl = req.originalUrl.split('?');
   const page = +req.query.page || 1;
-  const arrayForTitle = (req.params.categoryProducts.split('-'));
-  let titleName = (arrayForTitle[arrayForTitle.length - 1]);
-  titleName = titleName.charAt(0).toUpperCase() + titleName.slice(1);
+
   collection.find({ primary_category_id: req.params.categoryProducts }).count()
     .then((numProducts) => {
       totalItems = numProducts;
@@ -68,7 +60,7 @@ exports.getSpecificCategoryProducts = (req, res) => {
             _,
 
             // Template data
-            title: titleName,
+            title: req.params.categoryProducts,
             items,
             categoryUrl: categoryUrl[0],
             breadcrumbs: req.breadcrumbs,
