@@ -12,16 +12,12 @@ exports.getCurrentProduct = (req, res) => {
   let currentPrice;
   let calculatedPrice;
   let selectedValue = req.query.currencies;
-  const { selectedCookie } = req.cookies;
+
   // check of there is no selected value and assign the cookie to it
   if (typeof selectedValue === 'undefined') {
     selectedValue = req.cookies.selectedCookie;
   }
-  if (typeof selectedCookie === 'undefined') {
-    res.cookie('selectedCookie', selectedValue);
-  } else {
-    res.cookie('selectedCookie', selectedValue);
-  }
+  res.cookie('selectedCookie', selectedValue);
 
   // Soap Service Controller
   function SoapController(args) {

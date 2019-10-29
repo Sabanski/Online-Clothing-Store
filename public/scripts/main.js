@@ -36,13 +36,12 @@ $(document).ready(function () {
     autoplay: false,
     dots: true,
   });
-
   slidecount = 1;
   jQuery('.owl-item').not('.cloned').each(function () {
     jQuery(this).addClass(`slidenumber${slidecount}`);
     slidecount += 1;
   });
-
+  // PDP quantity counter for plus and minus
   $('.minus').click(function () {
     let $input = $(this).parent().find('input');
     let count = parseInt($input.val()) - 1;
@@ -57,6 +56,7 @@ $(document).ready(function () {
     $input.change();
     return false;
   });
+  // active border on size and color
   $('.size-active').on('click', function () {
     $('.size-active').not(this).removeClass('size-active-border');
     $(this).toggleClass('size-active-border');

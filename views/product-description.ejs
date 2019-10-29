@@ -41,7 +41,7 @@
                 <% } else{ %>
                 <p class="price"><%= product.price %> USD</p>
                 <% } %>
-                <div class="select-currrency-label">Select Currency: <%= selectedValue %></div>
+                <div class="select-currrency-label">Select Currency:</div>
                 <form action="<%= path %>" method="?GET">
                     <select class="select-currrency" name="currencies" onchange="this.form.submit()">
                         <% if(selectedValue === 'BGN'){ %>

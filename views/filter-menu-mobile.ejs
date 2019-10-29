@@ -1,9 +1,9 @@
 <script>
     $(document).ready(function () {
         $('.icon-event-mobile').on('click', function () {
-            $('.icon-event-mobile').not(this).find('.i').removeClass('fas fa-check fa-xs');
+            $('.icon-event-mobile').not(this).find('.i').removeClass('fas fa-check');
             $('icon-event-mobile').not(this).removeClass('filter-menu-active');
-            $(this).find('i').toggleClass('fas fa-check fa-xs');
+            $(this).find('i').toggleClass('fas fa-check');
             $(this).toggleClass('filter-menu-active');
         });
         $(function () {
@@ -11,7 +11,7 @@
                 range: true,
                 min: 250,
                 max: 1000,
-                values: [250, 1000],
+                values: [250, 550],
                 slide: function (event, ui) {
                     $("#amount-mobile").val("$" + ui.values[0] + " - $" + ui.values[1]);
                 }
@@ -34,32 +34,32 @@
 
     <body>
         <div id="refine-by">Refine by:</div>
-        <div class="list-group-item filter-menu">
+        <div class="m-0 p-0 filter-menu">
             <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse1" aria-expanded="true">
                 <div class="col-11"><i class="fas fa-circle pr-2"></i>CATEGORY</div>
                 <div class=" col-1 p-0"><i class="fas fa-chevron-down"></i></div>
             </div>
             <div class="filter-content collapse col-12 m-auto filter-menu" id="collapse1">
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">MOTORBIKE</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">WINTERSPORTS</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">BIKE</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">EQUESTRIAN</div>
                 </a>
             </div>
         </div>
 
-        <div class="list-group-item filter-menu">
+        <div class="m-0 p-0 filter-menu">
             <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse2" aria-expanded="true">
                 <div class="col-11"><i class="fas fa-circle pr-2"></i>PRODUCT TYPE</div>
                 <div class="col-1 p-0"><i class="fas fa-chevron-down"></i></div>
@@ -67,54 +67,54 @@
 
             <div class="filter-content collapse col-12 m-auto" id="collapse2">
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">LEATHER SUITS</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">JACKETS</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">PANTS</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">ACCESSORIES</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">HELMETS</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">SHOES</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">BOOTS</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">GLOVES</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">SAFETY</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">TECHNICAL LAYERS</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">CASUAL WEAR</div>
                 </a>
 
             </div>
         </div>
 
-        <div class="list-group-item filter-menu">
+        <div class="m-0 p-0 filter-menu">
 
             <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse3" aria-expanded="true">
                 <div class="col-11"><i class="fas fa-circle pr-2 mb-1"></i>GENDER</div>
@@ -123,21 +123,21 @@
 
             <div class="filter-content collapse  col-12 m-auto" id="collapse3">
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">UNISEX</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">MEN</div>
                 </a>
                 <a href="#" class="row icon-event-mobile">
-                    <div class="col-2 pt-2"><i></i></div>
+                    <div class="col-2 pt-3 text-right"><i></i></div>
                     <div class="col-10 px-0 py-2 sub-category-label">WOMEN</div>
                 </a>
             </div>
         </div>
 
-        <div class="list-group-item filter-menu">
+        <div class="m-0 p-0 filter-menu">
             <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse4" aria-expanded="true">
                 <div class="col-11"><i class="fas fa-circle pr-2"></i>PRICE</div>
                 <div class="col-1 p-0"><i class="fas fa-chevron-down"></i></div>
@@ -148,7 +148,7 @@
             </div>
         </div>
 
-        <div class="list-group-item filter-menu">
+        <div class="m-0 p-0 filter-menu">
             <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse5" aria-expanded="true">
                 <div class="col-11"><i class="fas fa-circle pr-2"></i>COLOR</div>
                 <div class="col-1 p-0"><i class="fas fa-chevron-down"></i></div>
@@ -165,7 +165,7 @@
             </div>
         </div>
 
-        <div class="list-group-item filter-menu">
+        <div class="m-0 p-0 filter-menu">
             <div class="category-label row col-12" data-toggle="collapse" data-target="#collapse6" aria-expanded="true">
                 <div class="col-11"><i class="fas fa-circle pr-2"></i>SIZE</div>
                 <div class="col-1 p-0"><i class="fas fa-chevron-down"></i></div>
@@ -180,5 +180,19 @@
                     <div class="col-2 size-active-mobile p-2">XXL</div>
                 </div>
             </div>
+
+
+
         </div><!-- col.// -->
+        <div class="m-0 p-0 filter-menu">
+            <div class="row col-12 text-center cart-sm m-auto p-0">
+                <button class="col-12 reset-btn p-2">RESET ALL</button>
+            </div>
+        </div>
+        <div class="m-0 p-0 filter-menu">
+            <div class="row col-12 text-center cart-sm m-auto">
+                <button class="col-12 cart-btn">VIEW RESULTS</button>
+            </div>
+        </div>
+
 </div>
