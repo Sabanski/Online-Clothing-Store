@@ -21,7 +21,7 @@
     "express": "^4.17.1",
     "express-mongo-db": "^2.0.4",
     "express-session": "^1.16.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-eslint": "^5.0.0",
     "method-override": "^3.0.0",
     "mongodb": "^3.3.2",
